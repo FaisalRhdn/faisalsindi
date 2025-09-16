@@ -1,0 +1,131 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    color: #444;
+}
+
+.main-container {
+    overflow-x: hidden;
+}
+
+.page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.welcome-page {
+    background-color: #f4e8e8;
+    color: #8c525d;
+}
+
+.welcome-page h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3em;
+    margin: 0;
+}
+
+.welcome-page p {
+    font-size: 1.2em;
+}
+
+.text-page {
+    background-color: #fff;
+    font-style: italic;
+    padding: 40px;
+}
+
+.text-page .source {
+    font-style: normal;
+    font-size: 0.8em;
+    margin-top: 10px;
+}
+
+.details-page {
+    background-color: #f4e8e8;
+    color: #8c525d;
+}
+
+.details-page h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+.details-page p {
+    margin: 5px 0;
+}
+
+.footer-page {
+    background-color: #8c525d;
+    color: #fff;
+}
+
+/* Tombol */
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background-color: #d1a3a3;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #b38888;
+}
+
+/* Indikator Gulir */
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.scroll-indicator span {
+    font-size: 0.8em;
+    margin-bottom: 5px;
+}
+
+.arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 10px solid #8c525d;
+}
+
+/* Animasi */
+.animate__animated {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.animate__animated.animate__fadeInUp,
+.animate__animated.animate__delay-1s,
+.animate__animated.animate__delay-2s,
+.animate__animated.animate__delay-3s {
+    visibility: visible;
+}
+
+/* ... CSS sebelumnya tetap sama ... */
+
+#recipient-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2em;
+    color: #a36f78; /* Warna yang berbeda dari nama mempelai */
+    margin-bottom: 20px;
+}
