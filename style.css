@@ -1,17 +1,120 @@
+/* --- Placeholder Desain Pojok --- */
+.corner-design {
+    position: fixed;
+    width: 150px;
+    height: 150px;
+    z-index: 1000;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.top-left {
+    top: 0;
+    left: 0;
+    background: url("New Crop.png") no-repeat center/contain;
+    animation: corner-anim-left 6s ease-in-out infinite;
+}
+
+.top-right {
+    top: 0;
+    right: 0;
+    background: url("New Crop 1.png") no-repeat center/contain;
+    animation: corner-anim-right 6s ease-in-out infinite;
+}
+
+/* Animasi untuk desain pojok kiri atas */
+@keyframes corner-anim-left {
+    0% { transform: translateY(-10px) rotate(0deg); opacity: 0.8; }
+    50% { transform: translateY(10px) rotate(5deg); opacity: 1; }
+    100% { transform: translateY(-10px) rotate(0deg); opacity: 0.8; }
+}
+
+/* Animasi untuk desain pojok kanan atas */
+@keyframes corner-anim-right {
+    0% { transform: translateY(10px) rotate(0deg); opacity: 0.8; }
+    50% { transform: translateY(-10px) rotate(-5deg); opacity: 1; }
+    100% { transform: translateY(10px) rotate(0deg); opacity: 0.8; }
+}
+
+/*
+    -----------------------------------------------------
+    --- Style CSS untuk Undangan Pernikahan Faisal & Sindi ---
+    -----------------------------------------------------
+*/
+
+/* --- Dasar & Tipografi --- */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
-    color: #444;
-}
-
-.main-container {
+    background-color: #fdf7f0; /* Cream */
+    color: #5c4a3e; /* Coklat tua */
+    line-height: 1.6;
     overflow-x: hidden;
 }
 
-.page {
+/* --- Tirai Pembuka (Cover) --- */
+#cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
     height: 100vh;
+    background: url("Utama.jpg") no-repeat center/cover, #e6d4c0;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 1.5s ease-out, opacity 1s ease-out;
+}
+
+/* Overlay agar teks lebih jelas */
+#cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+#cover.is-open {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* --- Perbaikan: Pastikan tulisan di halaman tirai terlihat --- */
+.welcome-page .animated-element {
+    opacity: 1;
+    transform: translateY(0);
+}
+#cover .welcome-page {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+}
+/* Ubah semua teks di cover jadi putih */
+#cover .couple-name,
+#cover .recipient-name,
+#cover .separator,
+#cover .couple-name,
+#cover .invitation-text,
+#cover .scroll-indicator span,
+#cover .arrow-down {
+    color: #fff;
+}
+
+#cover .separator {
+    background-color: #fff;
+}
+
+.arrow-down {
+    border-top-color: #fff;
+}
+
+/* --- Halaman Umum --- */
+.page {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -22,71 +125,208 @@ body {
     position: relative;
 }
 
-.welcome-page {
-    background-color: #f4e8e8;
-    color: #8c525d;
+.content-wrapper {
+    max-width: 420px;
+    padding: 20px;
 }
 
-.welcome-page h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3em;
-    margin: 0;
+/* --- Halaman Foto --- */
+.photo-page {
+    background-color: #fdf7f0;
+    padding: 50px 20px;
 }
 
-.welcome-page p {
-    font-size: 1.2em;
+/* Container untuk layout dua foto berdampingan */
+.photo-info-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    max-width: 800px;
+    margin-bottom: 30px;
 }
 
-.text-page {
-    background-color: #fff;
-    font-style: italic;
-    padding: 40px;
+.photo-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 250px;
 }
 
-.text-page .source {
-    font-style: normal;
-    font-size: 0.8em;
-    margin-top: 10px;
+.info-column {
+    text-align: left;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.details-page {
-    background-color: #f4e8e8;
-    color: #8c525d;
+.couple-photo {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    filter: grayscale(80%);
+    transition: transform 0.3s ease;
 }
 
-.details-page h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8em;
-    margin-top: 30px;
+.couple-photo:hover {
+    transform: scale(1.05);
+}
+
+.couple-name-small {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2em;
+    font-weight: 500;
+    color: #5c4a3e;
+    margin-top: 0;
     margin-bottom: 5px;
 }
 
-.details-page p {
+.person-bio {
+    font-style: italic;
+    color: #7d6b5f;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.photo-caption {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.2em;
+    margin-top: 30px;
+    color: #7d6b5f;
+}
+
+/* Gaya untuk link Instagram */
+.info-column a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+.info-column a:hover h3 {
+    color: #4a3c31; /* Warna saat dihover */
+}
+
+
+/* --- Halaman Detail Acara --- */
+.details-page {
+    background-color: #e6d4c0;
+    padding: 60px 20px;
+}
+
+.event-details {
+    margin-bottom: 35px;
+}
+
+.event-details h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.9em;
+    margin: 0;
+    font-weight: 600;
+    color: #5c4a3e;
+}
+
+.date, .time {
+    font-weight: 300;
     margin: 5px 0;
 }
 
-.footer-page {
-    background-color: #8c525d;
-    color: #fff;
+.location-name {
+    font-style: italic;
+    color: #555;
 }
 
-/* Tombol */
 .btn {
     display: inline-block;
     margin-top: 20px;
-    padding: 12px 24px;
-    background-color: #d1a3a3;
+    padding: 12px 28px;
+    background-color: #5c4a3e;
     color: #fff;
     text-decoration: none;
-    border-radius: 50px;
-    transition: background-color 0.3s ease;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
 }
 
 .btn:hover {
-    background-color: #b38888;
+    background-color: #4a3c31;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-/* Indikator Gulir */
+/* --- Halaman Penutup --- */
+.footer-page {
+    background-color: #5c4a3e;
+    color: #fff;
+    padding: 60px 20px;
+}
+
+.closing-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5em;
+    font-style: italic;
+}
+
+.footer-page h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5em;
+    font-weight: 500;
+    margin-top: 15px;
+}
+
+/* Gaya baru untuk bagian bank transfer */
+.bank-transfer-info {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.bank-transfer-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.9em;
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.bank-transfer-info p {
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0 0 20px 0;
+}
+
+.account-details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.account-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.bank-logo {
+    width: 60px; /* Ukuran ikon, sesuaikan jika perlu */
+    height: auto;
+}
+
+.account-text p {
+    margin: 0;
+    font-size: 1em;
+    color: #fff;
+}
+.account-text p:first-of-type {
+    margin-bottom: 2px;
+}
+
+
+/* --- Indikator Gulir --- */
 .scroll-indicator {
     position: absolute;
     bottom: 30px;
@@ -103,29 +343,59 @@ body {
 .arrow-down {
     width: 0;
     height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 10px solid #8c525d;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 12px solid #fff;
 }
 
-/* Animasi */
-.animate__animated {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.animate__animated.animate__fadeInUp,
-.animate__animated.animate__delay-1s,
-.animate__animated.animate__delay-2s,
-.animate__animated.animate__delay-3s {
-    visibility: visible;
-}
-
-/* ... CSS sebelumnya tetap sama ... */
-
-#recipient-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 2em;
-    color: #a36f78; /* Warna yang berbeda dari nama mempelai */
+/* Tambahkan kode ini ke bagian bawah style.css */
+.map-container {
+    margin-top: 30px;
     margin-bottom: 20px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
+}
+/* --- Animasi Kustom --- */
+.animated-element {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Responsif --- */
+@media (max-width: 768px) {
+    .photo-info-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    .info-column {
+        text-align: center;
+    }
+    .account-details {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+@media (max-width: 480px) {
+    .couple-photo {
+        filter: grayscale(50%);
+    }
+    .footer-page h2 {
+        font-size: 2em;
+    }
 }
