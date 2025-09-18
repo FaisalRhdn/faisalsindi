@@ -460,3 +460,30 @@ body {
 #music-button:hover {
     transform: scale(1.1);
 }
+
+/* Gaya untuk Tombol Buka Undangan */
+.open-button-container {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+#open-invitation-button {
+    padding: 12px 28px;
+    font-size: 1em;
+    font-weight: 500;
+    color: #fff;
+    background-color: #5c4a3e; /* Coklat tua */
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+#open-invitation-button:hover {
+    background-color: #4a3c31;
+    transform: translateY(-2px);
+}
