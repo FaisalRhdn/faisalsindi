@@ -381,3 +381,82 @@ body {
         font-size: 2em;
     }
 }
+/* Music Overlay */
+#music-overlay {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background-color: rgba(253, 247, 240, 0.9);
+    border: 1px solid #5c4a3e;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+    transform: translateX(100px);
+    pointer-events: none;
+}
+
+#music-overlay.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+.music-info {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.music-info img {
+    width: 20px;
+    height: 20px;
+}
+
+#music-title {
+    font-size: 0.8em;
+    color: #5c4a3e;
+    white-space: nowrap;
+}
+
+#music-button {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: none;
+    background-color: #5c4a3e;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("music_on.png");
+}
+
+/* Animasi Putar */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#music-button.is-playing {
+    animation: rotate 2s linear infinite; /* Kecepatan 2 detik, linear, berulang terus-menerus */
+}
+
+#music-button.paused {
+    background-image: url("music_off.png");
+}
+
+#music-button:hover {
+    transform: scale(1.1);
+}
